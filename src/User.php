@@ -39,9 +39,9 @@ class User extends AopClient
     /**
      * @param $accid
      * @param $name
-     * @param array $props
      * @param $icon
      * @param $token
+     * @param array $props
      * @param $sign
      * @param $email
      * @param $birth
@@ -53,9 +53,9 @@ class User extends AopClient
     private function verifyUserInfo(
         $accid,
         $name,
-        array $props = [],
         $icon,
         $token,
+        array $props = [],
         $sign,
         $email,
         $birth,
@@ -115,9 +115,9 @@ class User extends AopClient
     /**
      * @param $accid
      * @param $name
-     * @param array $props
      * @param string $icon
      * @param string $token
+     * @param array $props
      * @param string $sign
      * @param string $email
      * @param string $birth
