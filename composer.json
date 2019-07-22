@@ -1,0 +1,20 @@
+{
+    "name": "obacm/laravel-yunxin",
+    "description": "网易云信 IM",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Obacm",
+            "email": "1129627438@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Obacm\\YunXin\\": "src/"
+        }
+    }
+}
