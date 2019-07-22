@@ -36,9 +36,9 @@ class AopClient
      */
     public function __construct()
     {
-        $this->appKey = config('yunxin.app_key');
+        $this->appKey = \config('yunxin.app_key');
 
-        $this->appSecret = config('yunxin.app_secret');
+        $this->appSecret = \config('yunxin.app_secret');
     }
 
     public function getCheckSum()

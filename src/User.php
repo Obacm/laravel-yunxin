@@ -104,7 +104,7 @@ class User extends AopClient
         }
 
         if (!\in_array($gender, self::USER_GENDER_TYPES)) {
-            throw new YunXinArgException('用户性别不合法！');
+            throw new YunXinArgException('用户性别不合法');
         }
 
         if (\strlen($ex) > self::USER_EX_LIMIT) {
