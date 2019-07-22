@@ -16,5 +16,12 @@
         "psr-4": {
             "Obacm\\YunXin\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Obacm\\YunXin\\YunXinServiceProvider"
+            ]
+        }
     }
 }

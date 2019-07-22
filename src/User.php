@@ -220,11 +220,11 @@ class User extends AopClient
     public function getUserInfos(array $accids = [])
     {
         if (empty($accids)) {
-            throw new YunXinArgException('查询用户不能为空！');
+            throw new YunXinArgException('查询用户不能为空');
         }
 
         if (count($accids) > self::GET_UINFOS_LIMIT) {
-            throw new YunXinArgException('查询用户数量超过限制！');
+            throw new YunXinArgException('查询用户数量超过限制');
         }
 
         $res = $this->sendRequest(self::USER_GET_INFO, [
