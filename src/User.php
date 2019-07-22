@@ -133,6 +133,8 @@ class User extends AopClient
     public function create(
         $accid,
         $name,
+        $icon = '',
+        $token = '',
         array $props = [],
         $icon = '',
         $token = '',
@@ -150,9 +152,9 @@ class User extends AopClient
         $res = $this->sendRequest(self::USER_CREATE_URL, \array_filter([
             'accid' => $accid,
             'name' => $name,
-            'props' => \json_encode($props),
             'icon' => $icon,
             'token' => $token,
+            'props' => \json_encode($props),
             'sign' => $sign,
             'email' => $email,
             'birth' => $birth,
