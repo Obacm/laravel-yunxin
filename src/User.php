@@ -136,8 +136,6 @@ class User extends AopClient
         $icon = '',
         $token = '',
         array $props = [],
-        $icon = '',
-        $token = '',
         $sign = '',
         $email = '',
         $birth = '',
@@ -146,7 +144,7 @@ class User extends AopClient
         $ex = ''
     )
     {
-        $this->verifyUserInfo($accid, $name, $props, $icon, $token, $sign,
+        $this->verifyUserInfo($accid, $name, $icon, $token, $props, $sign,
             $email, $birth, $mobile, $gender, $ex);
 
         $res = $this->sendRequest(self::USER_CREATE_URL, \array_filter([
