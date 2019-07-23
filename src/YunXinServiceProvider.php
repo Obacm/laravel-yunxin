@@ -1,6 +1,6 @@
 <?php
 
-namespace Obacm\Yunxin;
+namespace Obacm\YunXin;
 
 use Illuminate\Support\ServiceProvider;
 
