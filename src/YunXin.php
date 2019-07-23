@@ -29,8 +29,23 @@ class YunXin
         $key = 'user';
 
         if (!\array_key_exists($key, $this->instances)) {
-            $user = new User();
-            $this->instances[$key] = $user;
+            $instance = new User();
+            $this->instances[$key] = $instance;
+        }
+
+        return $this->instances[$key];
+    }
+
+    /**
+     * @return Friend
+     */
+    public function friend()
+    {
+        $key = 'friend';
+
+        if (!\array_key_exists($key, $this->instances)) {
+            $instance = new Friend();
+            $this->instances[$key] = $instance;
         }
 
         return $this->instances[$key];

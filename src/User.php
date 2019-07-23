@@ -4,6 +4,10 @@ namespace Obacm\YunXin;
 
 use Obacm\YunXin\Exceptions\YunXinArgException;
 
+/**
+ * Class User
+ * @package Obacm\YunXin
+ */
 class User extends AopClient
 {
     const USER_CREATE_URL = 'user/create.action';
