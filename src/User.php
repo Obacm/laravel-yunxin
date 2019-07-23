@@ -195,7 +195,7 @@ class User extends AopClient
         $gender = '',
         $ex = ''
     ) {
-        $this->verifyUserInfo($accid, $name, [], $icon, '', $sign,
+        $this->verifyUserInfo($accid, $name, $icon, '', [], $sign,
             $email, $birth, $mobile, $gender, $ex);
 
         $res = $this->sendRequest(self::USER_UPDATE_URL, \array_filter([
@@ -210,7 +210,7 @@ class User extends AopClient
             'ex' => $ex,
         ]));
 
-        return $res;
+        return $res['code'];
     }
 
     /**
