@@ -8,11 +8,11 @@ namespace Obacm\YunXin;
  */
 class Friend extends AopClient
 {
-    const FRIEND_GET_URL = 'get.action';
+    const FRIEND_GET_URL = 'friend/get.action';
 
-    const FRIEND_ADD_URL = 'add.action';
+    const FRIEND_ADD_URL = 'friend/add.action';
 
-    const FRIEND_DELETE_URL = 'delete.action';
+    const FRIEND_DELETE_URL = 'friend/delete.action';
 
     /**
      * @param $accid
