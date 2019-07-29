@@ -51,6 +51,18 @@ class YunXin
         return $this->instances[$key];
     }
 
+    public function message()
+    {
+        $key = 'message';
+
+        if (!\array_key_exists($key, $this->instances)) {
+            $instance = new Message();
+            $this->instances[$key] = $instance;
+        }
+
+        return $this->instances[$key];
+    }
+
     /**
      * 抄送消息验证检验码
      * @param $body
