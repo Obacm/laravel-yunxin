@@ -12,6 +12,8 @@ class Message extends AopClient
 
     const MSG_CANCEL_URL = 'msg/recall.action';
 
+    const MSG_NOTIFICATION_URL = 'msg/sendAttachMsg.action';
+
     const MSG_TYPE_TEXT = 0;
 
     const MSG_TYPE_IMAGE = 1;
@@ -38,7 +40,7 @@ class Message extends AopClient
      * @throws \Obacm\Yunxin\Exceptions\YunXinInnerException
      * @throws \Obacm\Yunxin\Exceptions\YunXinNetworkException
      */
-    public function send($accidFrom, $ope, $accidTo, $type, $body, $pushcontent)
+    public function sendCustomMsg($accidFrom, $ope, $accidTo, $type, $body, $pushcontent = '')
     {
         $res = $this->sendRequest(self::MSG_SEND_URL, [
             'from' => $accidFrom,
@@ -47,6 +49,30 @@ class Message extends AopClient
             'type' => $type,
             'body' => $body,
             'pushcontent' => $pushcontent,
+        ]);
+
+        return $res;
+    }
+
+    /**
+     * @param $from
+     * @param $msgType
+     * @param $to
+     * @param $attach
+     * @param string $pushContent
+     * @return mixed
+     * @throws \Obacm\Yunxin\Exceptions\YunXinBusinessException
+     * @throws \Obacm\Yunxin\Exceptions\YunXinInnerException
+     * @throws \Obacm\Yunxin\Exceptions\YunXinNetworkException
+     */
+    public function sendAttachMsg($from, $msgType, $to, $attach, $pushContent = '')
+    {
+        $res = $this->sendRequest(self::MSG_NOTIFICATION_URL, [
+            'from' => $from,
+            'msgtype' => $msgType,
+            'to' => $to,
+            'attach' => $attach,
+            'pushcontent' => $pushContent,
         ]);
 
         return $res;
@@ -67,7 +93,7 @@ class Message extends AopClient
      * @throws \Obacm\Yunxin\Exceptions\YunXinInnerException
      * @throws \Obacm\Yunxin\Exceptions\YunXinNetworkException
      */
-    public function cancel($deleteMsgid, $timetag, $type, $from, $to, $msg, $ignoreTime, $pushContent, $payload)
+    public function cancelMsg($deleteMsgid, $timetag, $type, $from, $to, $msg, $ignoreTime, $pushContent, $payload)
     {
         $res = $this->sendRequest(self::MSG_CANCEL_URL, [
             'deleteMsgid' => $deleteMsgid,
