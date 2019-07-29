@@ -32,19 +32,21 @@ class Message extends AopClient
      * @param $accidTo
      * @param $type
      * @param $body
+     * @param $pushcontent
      * @return mixed
      * @throws \Obacm\Yunxin\Exceptions\YunXinBusinessException
      * @throws \Obacm\Yunxin\Exceptions\YunXinInnerException
      * @throws \Obacm\Yunxin\Exceptions\YunXinNetworkException
      */
-    public function send($accidFrom, $ope, $accidTo, $type, $body)
+    public function send($accidFrom, $ope, $accidTo, $type, $body, $pushcontent)
     {
         $res = $this->sendRequest(self::MSG_SEND_URL, [
             'from' => $accidFrom,
             'ope' => $ope,
             'to' => $accidTo,
             'type' => $type,
-            'body' => $body
+            'body' => $body,
+            'pushcontent' => $pushcontent,
         ]);
 
         return $res;
