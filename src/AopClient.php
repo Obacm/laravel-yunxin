@@ -3,9 +3,9 @@
 namespace Obacm\YunXin;
 
 use GuzzleHttp\Client;
-use Obacm\Yunxin\Exceptions\YunXinInnerException;
-use Obacm\Yunxin\Exceptions\YunXinNetworkException;
-use Obacm\Yunxin\Exceptions\YunXinBusinessException;
+use Obacm\YunXin\Exceptions\YunXinInnerException;
+use Obacm\YunXin\Exceptions\YunXinNetworkException;
+use Obacm\YunXin\Exceptions\YunXinBusinessException;
 
 /**
  * Class AopClient
