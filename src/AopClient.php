@@ -1,6 +1,6 @@
 <?php
 
-namespace Obacm\Yunxin;
+namespace Obacm\YunXin;
 
 use GuzzleHttp\Client;
 use Obacm\Yunxin\Exceptions\YunXinInnerException;
