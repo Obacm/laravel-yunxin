@@ -34,13 +34,14 @@ class Message extends AopClient
      * @param $accidTo
      * @param $type
      * @param $body
-     * @param $pushcontent
+     * @param string $pushcontent
+     * @param string $ext
      * @return mixed
-     * @throws \Obacm\Yunxin\Exceptions\YunXinBusinessException
-     * @throws \Obacm\Yunxin\Exceptions\YunXinInnerException
-     * @throws \Obacm\Yunxin\Exceptions\YunXinNetworkException
+     * @throws Exceptions\YunXinBusinessException
+     * @throws Exceptions\YunXinInnerException
+     * @throws Exceptions\YunXinNetworkException
      */
-    public function sendCustomMsg($accidFrom, $ope, $accidTo, $type, $body, $pushcontent = '')
+    public function sendCustomMsg($accidFrom, $ope, $accidTo, $type, $body, $pushcontent = '', $ext = '')
     {
         $res = $this->sendRequest(self::MSG_SEND_URL, [
             'from' => $accidFrom,
@@ -49,6 +50,7 @@ class Message extends AopClient
             'type' => $type,
             'body' => $body,
             'pushcontent' => $pushcontent,
+            'ext' => $ext,
         ]);
 
         return $res;
@@ -60,12 +62,13 @@ class Message extends AopClient
      * @param $to
      * @param $attach
      * @param string $pushContent
+     * @param string $ext
      * @return mixed
-     * @throws \Obacm\Yunxin\Exceptions\YunXinBusinessException
-     * @throws \Obacm\Yunxin\Exceptions\YunXinInnerException
-     * @throws \Obacm\Yunxin\Exceptions\YunXinNetworkException
+     * @throws Exceptions\YunXinBusinessException
+     * @throws Exceptions\YunXinInnerException
+     * @throws Exceptions\YunXinNetworkException
      */
-    public function sendAttachMsg($from, $msgType, $to, $attach, $pushContent = '')
+    public function sendAttachMsg($from, $msgType, $to, $attach, $pushContent = '', $ext = '')
     {
         $res = $this->sendRequest(self::MSG_NOTIFICATION_URL, [
             'from' => $from,
@@ -73,6 +76,7 @@ class Message extends AopClient
             'to' => $to,
             'attach' => $attach,
             'pushcontent' => $pushContent,
+            'ext' => $ext,
         ]);
 
         return $res;
