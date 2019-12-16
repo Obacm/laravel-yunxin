@@ -14,6 +14,8 @@ class Message extends AopClient
 
     const MSG_NOTIFICATION_URL = 'msg/sendAttachMsg.action';
 
+    const MSG_BATCH_URL = 'msg/sendBatchMsg.action';
+
     const MSG_TYPE_TEXT = 0;
 
     const MSG_TYPE_IMAGE = 1;
@@ -75,6 +77,32 @@ class Message extends AopClient
             'msgtype' => $msgType,
             'to' => $to,
             'attach' => $attach,
+            'pushcontent' => $pushContent,
+            'ext' => $ext,
+        ]);
+
+        return $res;
+    }
+
+    /**
+     * @param $accidFrom
+     * @param array $accidsTo
+     * @param $type
+     * @param $body
+     * @param string $pushContent
+     * @param string $ext
+     * @return mixed
+     * @throws Exceptions\YunXinBusinessException
+     * @throws Exceptions\YunXinInnerException
+     * @throws Exceptions\YunXinNetworkException
+     */
+    public function sendBatchMsg($accidFrom, array $accidsTo, $type, $body, $pushContent = '', $ext = '')
+    {
+        $res = $this->sendRequest(self::MSG_BATCH_URL, [
+            'fromAccid' => $accidFrom,
+            'toAccids' => json_encode($accidsTo),
+            'type' => $type,
+            'body' => $body,
             'pushcontent' => $pushContent,
             'ext' => $ext,
         ]);
